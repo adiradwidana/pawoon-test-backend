@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Redirect;
 use Validator;
 use App\Http\Models\User;
 use Illuminate\Http\Request;
@@ -81,10 +82,9 @@ class UserController extends Controller
 
         $validation = Validator::make($request->all(), $rules);
 
-        if($validation->fails())
-        {
-          return response($validation->errors(), 400);
-        }
+        if($validation->fails()) {
+		    return Redirect::back()->withErrors($validation);
+		}
 
 		$user = User::whereName($request->input('name'))->first();
 
@@ -106,7 +106,7 @@ class UserController extends Controller
 			return response('Terjadi Kesalahan', 500);
 		}
 
-		return redirect('/');
+		return redirect('/')->with('message', 'Berhasil menambahkan data user');
 
 	}
 }

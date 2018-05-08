@@ -6,6 +6,14 @@
 </head>
 <body>
 	<div class="col-md-6">
+		@if($errors)
+            @foreach($errors->all() as $error)
+                <small style="color:red">{{ $error }}</small><br/>
+            @endforeach
+        @endif
+        @if(session()->has('message'))
+            <h2 style="color:green">{{ session()->get('message') }}</h2><br/>
+        @endif
 		<form method="post" action="{{ route('create') }}">
 			{{ csrf_field() }}
 			<table class="table">
