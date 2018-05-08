@@ -11,7 +11,7 @@
 			<table class="table">
 				<tr>
 					<td>ID</td>
-					<td><input type="text" name="id" placeholder="98a79d8a9af9a879fa" disabled class="form-control-"></td>
+					<td><input type="text" name="id" placeholder="98a79d8a9af9a879fa" disabled class="form-control"></td>
 				</tr>
 				<tr>
 					<td>Nama</td>
